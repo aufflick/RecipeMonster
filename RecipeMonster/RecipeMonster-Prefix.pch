@@ -5,3 +5,38 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+#define PerformBlockOnMainThreadAfterDelay(block, delay) \
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0e9 * delay )), dispatch_get_main_queue(), block )
+
+/// RMKit Lite :)
+
+/// A convenience macro for [NSArray arrayWithObjects:..., nil];
+#define NSArrayMake(x...) [NSArray arrayWithObjects:x, nil]
+
+/// A convenience macro for [NSMutableArray arrayWithObjects:..., nil];
+#define NSMutableArrayMake(x...) [NSMutableArray arrayWithObjects:x, nil]
+
+/// A convenience macro for [NSDictionary dictionaryWithObjectsAndKeys:..., nil];
+#define NSDictionaryMake(x...) [NSDictionary dictionaryWithObjectsAndKeys:x, nil]
+
+/// A convenience macro for [NSMutableDictionary dictionaryWithObjectsAndKeys:..., nil];
+#define NSMutableDictionaryMake(x...) [NSMutableDictionary dictionaryWithObjectsAndKeys:x, nil]
+
+/// A convenience macro for [NSArray arrayWithObjects:..., nil];
+#define NSMakeArray(x...) NSArrayMake(x)
+
+/// A convenience macro for [NSMutableArray arrayWithObjects:..., nil];
+#define NSMakeMutableArray(x...) NSMutableArrayMake(x)
+
+/// A convenience macro for [NSDictionary dictionaryWithObjectsAndKeys:..., nil];
+#define NSMakeDictionary(x...) NSDictionaryMake(x)
+
+/// A convenience macro for [NSMutableDictionary dictionaryWithObjectsAndKeys:..., nil];
+#define NSMakeMutableDictionary(x...) NSMutableDictionaryMake(x)
+
+/// Similar to kCFBooleanTrue, but returns an NSNumber* instead
+#define NSNumberYES ((NSNumber*)kCFBooleanTrue)
+
+/// Similar to kCFBooleanFalse, but returns an NSNumber* instead
+#define NSNumberNO ((NSNumber*)kCFBooleanFalse)
