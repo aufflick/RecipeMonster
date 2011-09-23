@@ -15,5 +15,6 @@
 @property (retain) Recipe * recipe;
 
 - (IBAction)save:(id)sender;
+- (IBAction)refetch:(id)sender;
 
 @end

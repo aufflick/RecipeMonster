@@ -8,10 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface RecipeMonsterAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
-    NSTableView *_recipeListTableView;
-    NSArrayController *_recipeArrayController;
+@interface RecipeMonsterAppDelegate : NSObject <NSApplicationDelegate>
+{
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
     NSManagedObjectContext *__mainQueueManagedObjectContext;
@@ -25,11 +23,13 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel * managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext * mainQueueManagedObjectContext;
 
-- (NSManagedObjectContext *) createManagedObjectContextWithParent:(NSManagedObjectContext *)parentContext andConcurrencyType:(NSManagedObjectContextConcurrencyType)ct;
+- (NSManagedObjectContext *) createManagedObjectContextWithParent:(NSManagedObjectContext *)parentContext
+                                               andConcurrencyType:(NSManagedObjectContextConcurrencyType)ct;
 - (NSManagedObjectContext *) createManagedObjectContext;
 
 - (IBAction)addRecipe:(id)sender;
 - (IBAction)viewThisObject:(id)sender;
+- (IBAction)viewInNewMOC:(id)sender;
 
 @end
 

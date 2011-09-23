@@ -25,4 +25,14 @@
     }];
 }
 
+- (IBAction)refetch:(id)sender
+{
+    NSManagedObjectContext * moc = self.recipe.managedObjectContext;
+    
+    [moc performBlockAndWait:^(void) {
+        [moc refreshObject:self.recipe mergeChanges:YES];
+    }];
+}
+
+
 @end

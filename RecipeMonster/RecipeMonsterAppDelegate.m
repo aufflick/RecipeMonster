@@ -17,7 +17,7 @@
 
 @implementation RecipeMonsterAppDelegate
 
-@synthesize window;
+@synthesize window=_window;
 @synthesize recipeListTableView = _recipeListTableView;
 @synthesize recipeArrayController = _recipeArrayController;
 
@@ -217,6 +217,24 @@
     wc.recipe = recipe;
 }
 
+- (IBAction)viewInNewMOC:(id)sender
+{
+    RecipeWindowController * wc = [[RecipeWindowController alloc] init];
+    NSNib * nib = [[NSNib alloc] initWithNibNamed:@"RecipeWindow" bundle:[NSBundle mainBundle]];
+    [nib instantiateNibWithOwner:wc topLevelObjects:nil];
+
+    NSManagedObjectContext * newMoc = [self createManagedObjectContext];
+
+    Recipe * mainQueueRecipeObject = [[self.recipeArrayController arrangedObjects] objectAtIndex:[self.recipeListTableView rowForView:sender]];
+    
+    __block Recipe * recipe = nil;
+    [newMoc performBlockAndWait:^(void) {
+        recipe = (Recipe *)[newMoc objectWithID:[mainQueueRecipeObject objectID]];
+    }];
+    
+    wc.recipe = recipe;
+}
+
 - (IBAction)addRecipe:(id)sender
 {
     RecipeWindowController * wc = [[RecipeWindowController alloc] init];
@@ -224,8 +242,12 @@
     [nib instantiateNibWithOwner:wc topLevelObjects:nil];
     
     NSManagedObjectContext * newMoc = [self createManagedObjectContext];
+
+    __block Recipe * newRecipe = nil;
+    [newMoc performBlockAndWait:^(void) {
+        newRecipe = [Recipe createEntityInContext:newMoc];
+    }];
     
-    Recipe * newRecipe = [Recipe createEntityInContext:newMoc];
     wc.recipe = newRecipe;    
 }
 

@@ -14,15 +14,28 @@
  * Core Data helper methods
  */
 
-// defined
 + (NSEntityDescription *)entityDescriptionInContext:(NSManagedObjectContext *)context;
 
-+ (NSArray *)findAllObjectsInContext:(NSManagedObjectContext *)context withError:(NSError **)error;
++ (NSFetchRequest *)fetchRequestForAllObjectsInContext:(NSManagedObjectContext *)context
+                                             withError:(NSError **)error;
++ (NSArray *)findAllObjectsInContext:(NSManagedObjectContext *)context
+                           withError:(NSError **)error;
 
-+ (NSArray *)findObjectsMatchingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withError:(NSError **)error;
++ (NSFetchRequest *)fetchRequestForObjectsMatchingPredicate:(NSPredicate *)predicate
+                                                  inContext:(NSManagedObjectContext *)context
+                                                  withError:(NSError **)error;
++ (NSArray *)findObjectsMatchingPredicate:(NSPredicate *)predicate
+                                inContext:(NSManagedObjectContext *)context
+                                withError:(NSError **)error;
 
-+ (NSArray *)findObjectsMatchingPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)sortDescriptors
-                                inContext:(NSManagedObjectContext *)context withError:(NSError **)error;
++ (NSFetchRequest *)fetchRequestForObjectsMatchingPredicate:(NSPredicate *)predicate
+                                        withSortDescriptors:(NSArray *)sortDescriptors
+                                                  inContext:(NSManagedObjectContext *)context
+                                                  withError:(NSError **)error;
++ (NSArray *)findObjectsMatchingPredicate:(NSPredicate *)predicate
+                      withSortDescriptors:(NSArray *)sortDescriptors
+                                inContext:(NSManagedObjectContext *)context
+                                withError:(NSError **)error;
 
 + (id)createEntityInContext:(NSManagedObjectContext *)context;
 
