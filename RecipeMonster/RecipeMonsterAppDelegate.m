@@ -9,6 +9,7 @@
 #import "RecipeMonsterAppDelegate.h"
 
 #import "RecipeWindowController.h"
+#import "DownloadWindowController.h"
 
 #define MOMD_NAME @"RecipeMonster"
 #define PERSISTENT_STORE_FILE_NAME @"RecipeMonster.storedata"
@@ -21,13 +22,6 @@
 @synthesize recipeListTableView = _recipeListTableView;
 @synthesize recipeArrayController = _recipeArrayController;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-}
-
-/**
-    Returns the directory the application uses to store the Core Data store file. This code uses a directory named "RecipeMonster" in the user's Library directory.
- */
 - (NSURL *)applicationFilesDirectory
 {
 
@@ -215,6 +209,7 @@
     
     Recipe * recipe = [[self.recipeArrayController arrangedObjects] objectAtIndex:[self.recipeListTableView rowForView:sender]];
     wc.recipe = recipe;
+    [wc.window makeKeyAndOrderFront:self];
 }
 
 - (IBAction)viewInNewMOC:(id)sender
@@ -233,6 +228,27 @@
     }];
     
     wc.recipe = recipe;
+    [wc.window makeKeyAndOrderFront:self];
+}
+
+- (IBAction)download:(id)sender
+{
+    DownloadWindowController * wc = [[DownloadWindowController alloc] init];
+    
+    wc.moc = [TheAppDelegate() createManagedObjectContext];
+    
+    NSNib * nib = [[NSNib alloc] initWithNibNamed:@"DownloadWindow" bundle:[NSBundle mainBundle]];
+    [nib instantiateNibWithOwner:wc topLevelObjects:nil];
+    
+    [wc.window makeKeyAndOrderFront:self];
+}
+
+- (IBAction)saveButton:(id)sender
+{
+    NSManagedObjectContext * moc = self.mainQueueManagedObjectContext;
+    [moc performBlock:^(void) {
+        [moc save:nil];
+    }];
 }
 
 - (IBAction)addRecipe:(id)sender
@@ -248,8 +264,14 @@
         newRecipe = [Recipe createEntityInContext:newMoc];
     }];
     
-    wc.recipe = newRecipe;    
+    wc.recipe = newRecipe;
+    [wc.window makeKeyAndOrderFront:self];
 }
 
 
 @end
+
+RecipeMonsterAppDelegate * TheAppDelegate(void)
+{
+    return (RecipeMonsterAppDelegate *)[[NSApplication sharedApplication] delegate];
+}

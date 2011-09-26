@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>PunchForkApiUrlString</key>
-	<string>http://foo</string>
+	<string>http://api.punchfork.com</string>
 	<key>PunchForkApiKey</key>
-	<string>teh_secr3t_key</string>
+	<string>62278798725d1db1</string>
 </dict>
 </plist>

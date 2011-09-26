@@ -8,6 +8,22 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PunchFork : NSObject
+@protocol PunchForkDelegate;
+
+@interface PunchFork : NSObject <NSURLConnectionDelegate>
+
+@property __weak id<PunchForkDelegate> delegate;
+
+- (void)startDownloadForSearchString:(NSString *)searchString;
+
+@end
+
+@protocol PunchForkDelegate <NSObject>
+
+@required
+
+- (void)punchFork:(PunchFork *)pf recipesReceived:(NSArray *)recipes;
+- (void)punchFork:(PunchFork *)pf downloadFailed:(NSError *)error;
+- (void)punchForkDownloadFinished:(PunchFork *)pf;
 
 @end
