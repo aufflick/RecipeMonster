@@ -153,8 +153,7 @@
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
 
-    // Save changes in the application's managed object context before the application terminates.
-
+    /*
     if (!__mainQueueManagedObjectContext) {
         return NSTerminateNow;
     }
@@ -195,6 +194,7 @@
             return NSTerminateCancel;
         }
     }
+     */
 
     return NSTerminateNow;
 }

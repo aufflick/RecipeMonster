@@ -21,6 +21,7 @@
 
 @synthesize searchString=_searchString;
 @synthesize moc=_moc;
+@synthesize insertingProgressIndicator = _insertingProgressIndicator;
 @synthesize pf=_pf;
 @synthesize progressIndicator = _progressIndicator;
 
@@ -46,6 +47,7 @@
     NSManagedObjectContext * moc = self.moc;
     
     [moc performBlock:^(void) {
+        [self.insertingProgressIndicator performSelectorOnMainThread:@selector(startAnimation:) withObject:nil waitUntilDone:NO];
         for (NSDictionary * recipeDict in recipes)
         {
             Recipe * recipe = [Recipe createEntityInContext:moc];
@@ -63,6 +65,7 @@
     NSManagedObjectContext * moc = self.moc;
     
     [moc performBlock:^(void) {
+        [self.insertingProgressIndicator performSelectorOnMainThread:@selector(stopAnimation:) withObject:nil waitUntilDone:NO];
         [moc save:nil];
     }];
     [self.progressIndicator stopAnimation:self];
