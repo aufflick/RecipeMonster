@@ -13,6 +13,7 @@
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
     NSManagedObjectContext *__mainQueueManagedObjectContext;
+    NSToolbarItem *_download;
 }
 
 @property (assign) IBOutlet NSWindow * window;
@@ -30,6 +31,8 @@
 - (IBAction)addRecipe:(id)sender;
 - (IBAction)viewThisObject:(id)sender;
 - (IBAction)viewInNewMOC:(id)sender;
+- (IBAction)download:(id)sender;
+- (IBAction)saveButton:(id)sender;
 
 @end
 

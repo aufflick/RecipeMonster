@@ -6,6 +6,8 @@
     #import <Cocoa/Cocoa.h>
 #endif
 
+#import "RecipeMonsterErrors.h"
+
 #define PerformBlockOnMainThreadAfterDelay(block, delay) \
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0e9 * delay )), dispatch_get_main_queue(), block )
 

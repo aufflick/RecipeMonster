@@ -12,3 +12,4 @@ build/
 *.xcworkspace/
 xcuserdata/
 FieldAgent2.xcodeproj/project.xcworkspace/xcuserdata/thepaddedcell.xcuserdatad/UserInterfaceState.xcuserstate
+PunchForkApiAccount.plist

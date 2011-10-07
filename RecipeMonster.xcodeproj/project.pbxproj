@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		643D04D6142C643200D7CE24 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643D04D5142C643200D7CE24 /* WebKit.framework */; };
+		64C62114143032A0001A4DA1 /* PunchFork.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C62113143032A0001A4DA1 /* PunchFork.m */; };
+		64C6211714303CDF001A4DA1 /* PunchForkApiAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64C6211614303CDF001A4DA1 /* PunchForkApiAccount.plist */; };
+		64C62120143045BD001A4DA1 /* DownloadWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C6211F143045BD001A4DA1 /* DownloadWindowController.m */; };
+		64C62122143045CB001A4DA1 /* DownloadWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C62121143045CB001A4DA1 /* DownloadWindow.xib */; };
 		64FB71C8142B4BBA009C3860 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64FB71C7142B4BBA009C3860 /* Cocoa.framework */; };
 		64FB71D2142B4BBA009C3860 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64FB71D0142B4BBA009C3860 /* InfoPlist.strings */; };
 		64FB71D4142B4BBA009C3860 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FB71D3142B4BBA009C3860 /* main.m */; };
@@ -25,6 +29,13 @@
 
 /* Begin PBXFileReference section */
 		643D04D5142C643200D7CE24 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		64C62112143032A0001A4DA1 /* PunchFork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PunchFork.h; sourceTree = "<group>"; };
+		64C62113143032A0001A4DA1 /* PunchFork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PunchFork.m; sourceTree = "<group>"; };
+		64C6211614303CDF001A4DA1 /* PunchForkApiAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PunchForkApiAccount.plist; sourceTree = "<group>"; };
+		64C6211D14304153001A4DA1 /* RecipeMonsterErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeMonsterErrors.h; sourceTree = "<group>"; };
+		64C6211E143045BD001A4DA1 /* DownloadWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadWindowController.h; sourceTree = "<group>"; };
+		64C6211F143045BD001A4DA1 /* DownloadWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadWindowController.m; sourceTree = "<group>"; };
+		64C62121143045CB001A4DA1 /* DownloadWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadWindow.xib; sourceTree = "<group>"; };
 		64FB71C3142B4BBA009C3860 /* RecipeMonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeMonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64FB71C7142B4BBA009C3860 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		64FB71CA142B4BBA009C3860 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -116,6 +127,13 @@
 				64FB71FB142B4FFA009C3860 /* RecipeWindowController.h */,
 				64FB71FC142B4FFA009C3860 /* RecipeWindowController.m */,
 				64FB71FE142B500D009C3860 /* RecipeWindow.xib */,
+				64C62112143032A0001A4DA1 /* PunchFork.h */,
+				64C62113143032A0001A4DA1 /* PunchFork.m */,
+				64C6211614303CDF001A4DA1 /* PunchForkApiAccount.plist */,
+				64C6211D14304153001A4DA1 /* RecipeMonsterErrors.h */,
+				64C6211E143045BD001A4DA1 /* DownloadWindowController.h */,
+				64C6211F143045BD001A4DA1 /* DownloadWindowController.m */,
+				64C62121143045CB001A4DA1 /* DownloadWindow.xib */,
 			);
 			path = RecipeMonster;
 			sourceTree = "<group>";
@@ -206,6 +224,8 @@
 				64FB71DE142B4BBA009C3860 /* MainMenu.xib in Resources */,
 				64FB71F1142B4CFC009C3860 /* Download.png in Resources */,
 				64FB71FF142B500D009C3860 /* RecipeWindow.xib in Resources */,
+				64C6211714303CDF001A4DA1 /* PunchForkApiAccount.plist in Resources */,
+				64C62122143045CB001A4DA1 /* DownloadWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +243,8 @@
 				64FB71F7142B4DB1009C3860 /* PTYNSImageJPEGTransformer.m in Sources */,
 				64FB71FA142B4E57009C3860 /* Recipe.m in Sources */,
 				64FB71FD142B4FFA009C3860 /* RecipeWindowController.m in Sources */,
+				64C62114143032A0001A4DA1 /* PunchFork.m in Sources */,
+				64C62120143045BD001A4DA1 /* DownloadWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

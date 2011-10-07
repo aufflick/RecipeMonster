@@ -17,27 +17,41 @@
     return [NSEntityDescription entityForName:[self entityName] inManagedObjectContext:context];
 }
 
-+ (NSArray *)findAllObjectsInContext:(NSManagedObjectContext *)context withError:(NSError **)error
++ (NSFetchRequest *)fetchRequestForAllObjectsInContext:(NSManagedObjectContext *)context
+                                             withError:(NSError **)error
 {
     NSEntityDescription *entity = [self entityDescriptionInContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
+
+    return request;
+}
+
++ (NSArray *)findAllObjectsInContext:(NSManagedObjectContext *)context
+                           withError:(NSError **)error
+{
+    NSFetchRequest *request = [self fetchRequestForAllObjectsInContext:context withError:error];
     
     return [context executeFetchRequest:request error:error];
 }
 
-+ (id)createEntityInContext:(NSManagedObjectContext *)context
++ (NSFetchRequest *)fetchRequestForObjectsMatchingPredicate:(NSPredicate *)predicate
+                                                  inContext:(NSManagedObjectContext *)context
+                                                  withError:(NSError **)error
 {
-    return [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
+    return [self fetchRequestForObjectsMatchingPredicate:predicate withSortDescriptors:nil inContext:context withError:error];
 }
+
 
 + (NSArray *)findObjectsMatchingPredicate:(NSPredicate *)predicate inContext:(NSManagedObjectContext *)context withError:(NSError **)error
 {
     return [self findObjectsMatchingPredicate:predicate withSortDescriptors:nil inContext:context withError:error];
 }
 
-+ (NSArray *)findObjectsMatchingPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)sortDescriptors
-                                inContext:(NSManagedObjectContext *)context withError:(NSError **)error
++ (NSFetchRequest *)fetchRequestForObjectsMatchingPredicate:(NSPredicate *)predicate
+                                        withSortDescriptors:(NSArray *)sortDescriptors
+                                                  inContext:(NSManagedObjectContext *)context
+                                                  withError:(NSError **)error
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:[self entityName]
@@ -50,9 +64,24 @@
     
     if (sortDescriptors)
         [fetchRequest setSortDescriptors:sortDescriptors];
+
+    return fetchRequest;
+}
+
++ (NSArray *)findObjectsMatchingPredicate:(NSPredicate *)predicate withSortDescriptors:(NSArray *)sortDescriptors
+                                inContext:(NSManagedObjectContext *)context withError:(NSError **)error
+{
+    NSFetchRequest * fetchRequest = [self fetchRequestForObjectsMatchingPredicate:predicate 
+                                                              withSortDescriptors:sortDescriptors
+                                                                        inContext:context
+                                                                        withError:error];
     
     return [context executeFetchRequest:fetchRequest error:error];
-    
+}
+
++ (id)createEntityInContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
 }
 
 + (NSString *)entityName
