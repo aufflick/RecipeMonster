@@ -10,7 +10,11 @@ In the spirit of WWDC demos, the demo is based around storing recipes.
 Slides/video
 ------------
 
-In the next few weeks the video will be uploaded and I'll provide a link here pointing to that.
+You can see a screencast with audio recording of the talk courtesy of the Apple University Consortium
+on their website: [http://auc.edu.au/2011/09/well-managed-object-contexts/](http://auc.edu.au/2011/09/well-managed-object-contexts/)
+
+The presentation without the audio isn't that informative, but if you really want that you can watch
+the slideshow on [http://public.iwork.com/document/?d=Well_Managed_Objects.key&a=p11413129](iWork.com)
 
 Running RecipeMonster
 ---------------------
