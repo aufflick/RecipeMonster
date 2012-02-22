@@ -14,7 +14,7 @@ You can see a screencast with audio recording of the talk courtesy of the Apple 
 on their website: [http://auc.edu.au/2011/09/well-managed-object-contexts/](http://auc.edu.au/2011/09/well-managed-object-contexts/)
 
 The presentation without the audio isn't that informative, but if you really want that you can watch
-the slideshow on [http://public.iwork.com/document/?d=Well_Managed_Objects.key&a=p11413129](iWork.com)
+the slideshow on [iWork.com](http://public.iwork.com/document/?d=Well_Managed_Objects.key&a=p11413129)
 
 Running RecipeMonster
 ---------------------
